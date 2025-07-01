@@ -1,0 +1,254 @@
+/* Import Font dan Reset CSS */
+:root {
+    --primary-color: #0D47A1; /* Biru Tua */
+    --secondary-color: #1976D2; /* Biru */
+    --light-color: #BBDEFB; /* Biru Muda */
+    --text-color: #333;
+    --bg-color: #f4f7fc;
+    --white-color: #fff;
+    --danger-color: #d32f2f;
+    --warning-color: #fbc02d;
+    --success-color: #388e3c;
+    --grey-color: #eee;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-weight: 600;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Dashboard */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background-color: var(--white-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--secondary-color);
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Toolbar */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+#btn-tambah {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+#btn-tambah:hover {
+    background-color: var(--secondary-color);
+}
+
+#search-input {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+}
+
+/* Table */
+.table-container {
+    background-color: var(--white-color);
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--grey-color);
+}
+
+thead {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+}
+
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.status {
+    padding: 0.3rem 0.6rem;
+    border-radius: 15px;
+    color: var(--white-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+}
+.status-Baik { background-color: var(--success-color); }
+.status-Perbaikan { background-color: var(--warning-color); color: #333; }
+.status-Rusak { background-color: var(--danger-color); }
+
+
+.btn-aksi {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.btn-edit { background-color: var(--secondary-color); }
+.btn-hapus { background-color: var(--danger-color); }
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--white-color);
+    margin: auto;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: slide-down 0.3s ease-out;
+}
+
+@keyframes slide-down {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-simpan {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-simpan:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    color: #777;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .toolbar {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    #search-input {
+        width: 100%;
+    }
+}

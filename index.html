@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPERA - Inventaris Diskominfo Pontianak</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>SIMPERA</h1>
+        <p>Sistem Inventaris Peralatan Diskominfo Kota Pontianak</p>
+    </header>
+
+    <main>
+        <div class="dashboard">
+            <div class="card">
+                <h3>Total Peralatan</h3>
+                <p id="total-items">0</p>
+            </div>
+            <div class="card">
+                <h3>Kondisi Baik</h3>
+                <p id="status-baik">0</p>
+            </div>
+            <div class="card">
+                <h3>Dalam Perbaikan</h3>
+                <p id="status-perbaikan">0</p>
+            </div>
+            <div class="card">
+                <h3>Rusak</h3>
+                <p id="status-rusak">0</p>
+            </div>
+        </div>
+
+        <div class="toolbar">
+            <button id="btn-tambah">Tambah Peralatan Baru</button>
+            <button id="btn-unduh-excel">Unduh Excel</button>
+            <input type="text" id="search-input" placeholder="Cari peralatan...">
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Peralatan</th>
+                        <th>Kategori</th>
+                        <th>Kode Inventaris</th>
+                        <th>Tgl Pengadaan</th>
+                        <th>Lokasi</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="inventory-table-body">
+                    </tbody>
+            </table>
+        </div>
+    </main>
+
+    <div id="item-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-title">Tambah Peralatan Baru</h2>
+            <form id="item-form">
+                <input type="hidden" id="item-id">
+                <div class="form-group">
+                    <label for="nama">Nama Peralatan</label>
+                    <input type="text" id="nama" required>
+                </div>
+                <div class="form-group">
+                    <label for="kategori">Kategori</label>
+                    <select id="kategori" required>
+                        <option value="Komputer">Komputer</option>
+                        <option value="Laptop">Laptop</option>
+                        <option value="Printer">Printer</option>
+                        <option value="Jaringan">Peralatan Jaringan</option>
+                        <option value="Proyektor">Proyektor</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="kode">Kode Inventaris</label>
+                    <input type="text" id="kode" required>
+                </div>
+                <div class="form-group">
+                    <label for="tanggal">Tanggal Pengadaan</label>
+                    <input type="date" id="tanggal" required>
+                </div>
+                <div class="form-group">
+                    <label for="lokasi">Lokasi/Ruangan</label>
+                    <input type="text" id="lokasi" required>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status" required>
+                        <option value="Baik">Baik</option>
+                        <option value="Perbaikan">Perbaikan</option>
+                        <option value="Rusak">Rusak</option>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="catatan">Catatan (Opsional)</label>
+                    <textarea id="catatan" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn-simpan">Simpan</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 - Diskominfo Kota Pontianak</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
